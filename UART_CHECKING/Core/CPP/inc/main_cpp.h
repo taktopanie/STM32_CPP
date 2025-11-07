@@ -17,7 +17,11 @@ private:
 public:
 	uint8_t Received;
 
-	UART_transaction(UART_HandleTypeDef* huart) : HUART(huart) {msg.clear();};
+	//constr
+	UART_transaction(UART_HandleTypeDef* huart) : HUART(huart)
+	{
+		msg.clear();
+	};
 
 	void message_print(std::string message)
 	{
@@ -38,6 +42,19 @@ public:
 		}
 	}
 
+};
+
+class UART_string_comparator : public UART_transaction
+{
+private:
+	std::string msg;
+	UART_HandleTypeDef *HUART;
+public:
+	//constr
+	UART_string_comparator(UART_HandleTypeDef* huart) : UART_transaction(huart)
+	{
+		msg.clear();
+	};
 };
 
 

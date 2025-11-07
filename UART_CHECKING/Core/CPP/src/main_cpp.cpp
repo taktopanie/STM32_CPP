@@ -10,7 +10,9 @@
 
 extern UART_HandleTypeDef huart1;
 
-UART_transaction uart_port(&huart1);
+//UART_transaction uart_port(&huart1);
+
+UART_string_comparator uart_port(&huart1);
 
 int main_cpp(void)
 {
